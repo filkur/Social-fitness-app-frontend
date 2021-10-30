@@ -21,8 +21,8 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: () => import('../views/Register')
-  }
+    component: () => import('../components/Auth/Register')
+  },
 ]
 
 const router = new VueRouter({
