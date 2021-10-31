@@ -23,6 +23,11 @@ const routes = [
     name: 'register',
     component: () => import('../components/Auth/Register')
   },
+  {
+    path: '/groups',
+    name: 'group',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group.vue')
+  }
 ]
 
 const router = new VueRouter({
