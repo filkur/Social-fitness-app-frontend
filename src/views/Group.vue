@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <p>{{ token }}></p>
-    <p>{{ userId }}></p>
-    <p>{{email}}></p>
-    <p>{{nickname}}></p>
+  <div class="containe">
+    <navbar></navbar>
+    <div>lala</div>
   </div>
 </template>
 
 <script>
+import Navbar from '../components/Navbar/Navbar'
+
 export default {
+  components: {
+    Navbar
+  },
   name: "Group",
   data () {
     return {
