@@ -1,5 +1,5 @@
 <template>
-  <div class="containe">
+  <div>
     <navbar></navbar>
     <div class="container" style="margin-top: 50px;">
       <div class="d-flex justify-content-start  mt-4">

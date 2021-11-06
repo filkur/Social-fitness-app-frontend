@@ -1,7 +1,7 @@
 <template>
   <div class="bg-light">
     <b-navbar variant="faded" type="light">
-      <b-navbar-brand href="/">Social-fitness-app</b-navbar-brand>
+      <b-navbar-brand href="/groups">Social-fitness-app</b-navbar-brand>
       <b-navbar-nav class="ml-auto">
         <button @click="logOut" class="btn btn-warning" type="submit">Log out</button>
       </b-navbar-nav>
