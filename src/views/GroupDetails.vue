@@ -2,7 +2,7 @@
   <div>
     <navbar></navbar>
     <Nav></Nav>
-    <div class="container " style="margin-top:100px;">
+    <div class="container" style="margin-top:100px;">
         <div class="row d-flex justify-content-center">
           <h1>{{group.name}}</h1>
         </div>
