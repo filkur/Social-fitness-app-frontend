@@ -29,9 +29,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Group.vue')
   },
   {
-    path: '/group/:id',
+    path: '/group/:id/info',
     name: 'groupDetails',
     component: () => import(/* webpackChunkName: "about" */ '../views/GroupDetails')
+  },
+  {
+    path: '/group/:id/members',
+    name: 'groupMembers',
+    component: () => import(/* webpackChunkName: "about" */ '../views/GroupMembers')
+  },
+  {
+    path: '/group/:id/posts',
+    name: 'GroupPosts',
+    component: () => import(/* webpackChunkName: "about" */ '../views/GroupPosts')
   }
 ]
 

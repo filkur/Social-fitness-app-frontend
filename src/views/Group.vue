@@ -84,7 +84,7 @@ export default {
           })
     },
     groupDetails(id) {
-      this.$router.push('group/'+id)
+      this.$router.push('group/'+id+'/info')
     }
   }
 }
