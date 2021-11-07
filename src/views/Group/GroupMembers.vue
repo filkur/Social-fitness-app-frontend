@@ -7,13 +7,12 @@
         <h2>Groups members:</h2>
       </div>
       <div class="container rounded mt-4">
-        <table class="table table-striped">
-          <thead >
+        <table class="table">
+          <thead class="bg-light">
           <tr>
             <td>Nickname:</td>
             <td>Email:</td>
             <td>Assigned At:</td>
-            <td></td>
           </tr>
           </thead>
           <tbody>
@@ -21,9 +20,13 @@
             <td>{{member.user.nickname}}</td>
             <td>{{member.user.email}}</td>
             <td>{{member.assignedAt}}</td>
-            <td v-if="loggedUserId === group.owner.id">
+            <div class="ml-4" v-if="loggedUserId === group.owner.id">
               <button @click="removeMember(member)" class="btn btn-danger" type="submit">Remove from group</button>
-            </td>
+            </div>
+
+            <div class="ml-4" v-else-if="loggedUserId === member.user.id">
+              <button @click="removeMember(member)" class="btn btn-danger" type="submit">Leave group</button>
+            </div>
           </tr>
           </tbody>
         </table>
