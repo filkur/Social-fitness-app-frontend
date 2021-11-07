@@ -22,8 +22,7 @@
             <h6>Start Date: {{event.startDate}}</h6>
             <h6>End Date: {{event.endDate}}</h6>
           </article>
-          <button type="button" class="btn btn-block btn-info">Go to the event!
-          </button>
+          <router-link v-bind:to="'/event/'+event.id" class="btn btn-block btn-info">Go to the event!</router-link>
         </div>
         </div>
     </div>
@@ -63,6 +62,11 @@ export default {
         .then((resp) => {
           this.group = resp.data;
         })
+  },
+  methods: {
+    eventDetails(id){
+      this.$router.push('eventDetails');
+    }
   }
 }
 </script>
