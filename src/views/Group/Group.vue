@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 import axios from "axios";
 
 export default {

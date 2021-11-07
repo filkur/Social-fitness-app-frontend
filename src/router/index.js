@@ -26,27 +26,27 @@ const routes = [
   {
     path: '/groups',
     name: 'group',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Group.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group/Group.vue')
   },
   {
     path: '/group/:id/info',
     name: 'groupDetails',
-    component: () => import(/* webpackChunkName: "about" */ '../views/GroupDetails')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group/GroupDetails')
   },
   {
     path: '/group/:id/members',
     name: 'groupMembers',
-    component: () => import(/* webpackChunkName: "about" */ '../views/GroupMembers')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group/GroupMembers')
   },
   {
     path: '/group/:id/posts',
     name: 'GroupPosts',
-    component: () => import(/* webpackChunkName: "about" */ '../views/GroupPosts')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group/GroupPosts')
   },
   {
     path: '/group/:id/events',
     name: 'groupEvents',
-    component: () => import(/* webpackChunkName: "about" */ '../views/GroupEvents')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Group/GroupEvents')
   }
 ]
 

@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import Navbar from "../components/Navbar/Navbar";
-import Nav from "../components/Group/Nav";
+import Navbar from "../../components/Navbar/Navbar";
+import Nav from "../../components/Group/Nav";
 import axios from "axios";
 
 export default {
