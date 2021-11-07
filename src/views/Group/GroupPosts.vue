@@ -8,12 +8,12 @@
       </div>
       <div v-for="post in group.posts" v-bind:key="post.id" class="container border bg-light rounded mt-5" style="max-width: 700px;">
         <div class="d-flex justify-content-around">
-          <div class="p-2">{{post.createdBy.nickname}}</div>
-          <div class="p-2"><h5>{{post.content}}</h5></div>
-          <div class="p-2">{{post.createdAt}}</div>
+          <div class="p-4">{{post.createdBy.nickname}}</div>
+          <div class="p-4"><h5>{{post.content}}</h5></div>
+          <div class="p-4">{{post.createdAt}}</div>
         </div>
-        <button type="button" class="btn btn-block btn-outline-success">take part in the discussion
-        </button>
+        <router-link v-bind:to="`/post/`+post.id" type="button" class="btn btn-block btn-outline-success mb-4">take part in the discussion
+        </router-link>
       </div>
     </div>
     <div v-else class="container"></div>
