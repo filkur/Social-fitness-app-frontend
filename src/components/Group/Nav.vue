@@ -16,7 +16,7 @@
         <h2>Posts</h2>
       </router-link>
     </li>
-    <li class="nav-item border-right">
+    <li class="nav-item">
       <router-link v-bind:to="'/group/'+this.$route.params.id+'/events'" class="nav-link text-dark">
         <h2>Events</h2>
       </router-link>
