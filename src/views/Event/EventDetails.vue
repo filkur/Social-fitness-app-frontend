@@ -14,9 +14,15 @@
           </div>
           <table class="table table-striped">
             <thead >
-            <tr>
+            <tr v-if="event.eventType === 'REP'">
               <td>Name:</td>
-              <td>Seconds or rips:</td>
+              <td>Reps:</td>
+              <td>Date:</td>
+              <td></td>
+            </tr>
+            <tr v-else>
+              <td>Name:</td>
+              <td>Seconds:</td>
               <td>Date:</td>
               <td></td>
             </tr>
