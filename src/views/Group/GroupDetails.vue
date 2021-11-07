@@ -22,6 +22,9 @@
         <button @click="generateCode()" class="btn btn-info mr-1" type="submit"> New code</button>
         <button @click="removeCode()" class="btn btn-secondary ml-1" type="submit">Remove code</button>
       </div>
+      <div v-if="loggedUserId === group.owner.id" class="row d-flex justify-content-center mt-4">
+        <button @click="removeGroup()" class="btn btn-outline-danger mr-1" type="submit">Remove group</button>
+      </div>
       </div>
   </div>
 </template>
@@ -90,7 +93,21 @@ export default {
       .then(()=>{
         location.reload();
       })
-    }
+    },
+    removeGroup(){
+      axios.delete(
+          'http://localhost:8000/api/group/'+this.group.id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${this.token}`
+            }
+          }
+      ).then(()=>{
+        alert('Group deleted');
+        this.$router.push('/groups');
+      })
+    },
   }
 }
 </script>
