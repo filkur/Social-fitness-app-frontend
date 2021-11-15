@@ -15,6 +15,9 @@
         <div class="p-3">{{comment.createdBy.nickname}}</div>
         <div class="p-3"><h5>{{comment.content}}</h5></div>
         <div class="p-3">{{comment.updatedAt}}</div>
+        <div v-if="loggedUserId ===comment.createdBy.id" class="p-3">
+          <button @click="deleteComment(comment.id)" class="btn btn-block btn-outline-danger" type="submit">Remove</button>
+        </div>
       </div>
     </div>
     <div class="container mt-2" style="max-width: 700px;">
@@ -96,6 +99,20 @@ export default {
             if (error.response){
               alert(error.response.data["hydra:description"]);
             }
+          })
+    },
+    deleteComment(id){
+      axios.delete(
+          'http://localhost:8000/api/comment/'+id,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${this.token}`
+            }
+          }
+      )
+          .then((res) => {
+            location.reload();
           })
     }
   }
