@@ -42,7 +42,7 @@
 
 <script>
 import Navbar from "../../components/Navbar/Navbar";
-import Nav from "../../components/Group/Nav";
+import Nav from "../../components/Nav/Nav";
 import axios from "axios";
 
 export default {

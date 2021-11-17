@@ -74,7 +74,7 @@
 
 <script>
 import Navbar from '../../components/Navbar/Navbar'
-import Nav from '../../components/Group/Nav'
+import Nav from '../../components/Nav/Nav'
 import axios from "axios";
 
 export default {
@@ -137,6 +137,7 @@ export default {
           .then((response) => {
             alert('Added new Event')
             location.reload();
+            this.$router.push('/groups')
           })
           .catch(function (error){
             if (error.response){
