@@ -81,7 +81,6 @@ export default {
       token: localStorage.token,
       loggedUserId: localStorage.id,
       event:undefined,
-      standing: [],
       newActivity: {
         eventId: this.$route.params.id,
         name: '',
@@ -101,8 +100,7 @@ export default {
     )
     .then((resp)=>{
       this.event=resp.data
-      this.standing = resp.data["eventMembers"]
-      this.standing = this.standing.sort((a,b)=>{
+      resp.data["eventMembers"].sort((a,b)=>{
       if (a.totalScore > b.totalScore)
       {
         return -1
@@ -116,15 +114,10 @@ export default {
       {
         return;
       }
-    });
-      console.log(this.standing)
-
+      });
     })
   },
   methods: {
-    activities(id){
-      console.log(id)
-    },
     removeActivity(id){
       axios.delete(
           'http://localhost:8000/api/activity/'+id,
