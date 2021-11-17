@@ -81,6 +81,7 @@ export default {
       token: localStorage.token,
       loggedUserId: localStorage.id,
       event:undefined,
+      standing: [],
       newActivity: {
         eventId: this.$route.params.id,
         name: '',
@@ -100,6 +101,24 @@ export default {
     )
     .then((resp)=>{
       this.event=resp.data
+      this.standing = resp.data["eventMembers"]
+      this.standing = this.standing.sort((a,b)=>{
+      if (a.totalScore > b.totalScore)
+      {
+        return -1
+      }
+      if (a.totalScore < b.totalScore)
+      {
+        return 1
+
+      }
+      else
+      {
+        return;
+      }
+    });
+      console.log(this.standing)
+
     })
   },
   methods: {
@@ -141,6 +160,13 @@ export default {
               alert(error.response.data["hydra:description"]);
             }
           })
+    },
+    compare(a,b){
+      if (a < b)
+        return -1
+      if (a > b)
+        return 1
+      return 0
     }
   }
 }
