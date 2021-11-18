@@ -1,6 +1,6 @@
 <template>
   <div class="bg-dark">
-    <b-navbar variant="faded" type="light">
+    <b-navbar class="p-3" variant="faded" type="light">
       <div>
         <b-button v-b-toggle.sidebar-backdrop>=</b-button>
 
@@ -11,10 +11,14 @@
             backdrop
             shadow
         >
+          <hr>
+
           <div class="px-3 py-2">
-            <span>Logged as: {{nickname}}</span>
+            <h5>Hello, {{nickname}}</h5>
           </div>
-          <div>
+          <hr>
+
+          <div class="text-dark">
             <b-button variant="link" v-bind:to="'/groups'">Show groups</b-button>
           </div>
           <div>
@@ -51,8 +55,18 @@
                 </div>
               </div>
             </b-modal>
-
           </div>
+
+          <div class="ml-2" style="margin-top: 325px;">
+            <h4>Account settings:</h4>
+          </div>
+          <div style="margin-top:5px;">
+            <b-card-footer >
+              <router-link v-bind:to="'/me'" class="btn btn-block btn-outline-success">Edit</router-link>
+              <b-button @click="removeUser()" block variant="outline-danger">Remove</b-button>
+            </b-card-footer>
+          </div>
+
         </b-sidebar>
       </div>
       <b-navbar-nav class="ml-auto">
@@ -135,6 +149,21 @@ export default {
           .then(resp => {
             alert('Joined to group');
             location.reload();
+          })
+    },
+    removeUser(){
+      axios.delete(
+          'http://localhost:8000/api/user/'+this.userId,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${this.token}`
+            }
+          }
+      )
+          .then((resp) => {
+            alert('Account deleted')
+            this.$router.push('/')
           })
     }
   }
