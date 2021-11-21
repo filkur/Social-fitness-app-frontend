@@ -39,9 +39,9 @@
           <div class="form-group">
             <select v-model="newEvent.eventType">
               <option disabled value="">Type:</option>
-              <option>TIME</option>
-              <option>TIME_LESS</option>
-              <option>REP</option>
+              <option>Time</option>
+              <option>Less time</option>
+              <option>Repetition</option>
             </select>
           </div>
         </div>
@@ -58,13 +58,15 @@
             <hr>
             is Active:<h6>{{event.isActive}}</h6>
             Description:<h6> {{event.description}}</h6>
+            Type:<h6> {{event.eventType}}</h6>
             Point goal:<h6>{{event.pointGoal}}</h6>
             Point Per Rep: <h6> {{event.pointPerRep}}</h6>
             Point Per Minute<h6>{{event.pointPerMinute}}</h6>
             <h6>Start Date: {{event.startDate}}</h6>
             <h6>End Date: {{event.endDate}}</h6>
           </article>
-          <router-link v-bind:to="'/event/'+event.id" class="btn btn-block btn-info">Go to the event!</router-link>
+          <router-link v-if="event.isActive === true" v-bind:to="'/event/'+event.id" class="btn btn-block btn-info">Go to the event!</router-link>
+          <b-button v-if="loggedUserId === group.owner.id" class="btn btn-block btn-warning">Change event status</b-button>
         </div>
         </div>
     </div>
@@ -91,6 +93,7 @@ export default {
       group:undefined,
       newEvent:{
         groupId: this.$route.params.id,
+        isActive: '',
         name: '',
         description: '',
         pointGoal: '',
@@ -117,14 +120,24 @@ export default {
         })
   },
   methods: {
-    eventDetails(id){
-      this.$router.push('eventDetails');
-    },
     createEvent(){
       this.newEvent.pointGoal = parseInt(this.newEvent.pointGoal);
       this.newEvent.pointPerRep = parseInt(this.newEvent.pointPerRep);
       this.newEvent.pointPerMinute = parseInt(this.newEvent.pointPerMinute);
-      axios.post(
+
+      if (this.newEvent.eventType === "Repetition"){
+        this.newEvent.eventType = "REP"
+      }
+      else if (this.newEvent.eventType === "Time"){
+        this.newEvent.eventType = "TIME"
+      }
+      else
+      {
+        this.newEvent.eventType = "LESS_TIME"
+      }
+
+      console.log(this.newEvent)
+       axios.post(
           'http://localhost:8000/api/event',
           JSON.stringify(this.newEvent),
           {

@@ -8,7 +8,7 @@
       </div>
       <div class="container mt-2" style="max-width: 1400px; margin-left: 0px;">
         <div>
-          <b-button v-b-toggle.collapse-1 variant="secondary">add new post:</b-button>
+          <b-button v-b-toggle.collapse-1 variant="secondary">Add new post:</b-button>
           <b-collapse id="collapse-1" class="mt-2">
             <b-card>
               <div class="form">
