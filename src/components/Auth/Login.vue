@@ -35,7 +35,7 @@ export default {
   methods: {
     loginUser(){
       axios.post(
-          'http://localhost:8000/api/login',
+          'https://filkur-fitness-app.herokuapp.com/api/login',
           {
             'email': this.email,
             'password': this.password

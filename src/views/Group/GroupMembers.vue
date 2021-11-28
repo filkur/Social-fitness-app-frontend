@@ -56,7 +56,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/group/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/group/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default {
       if (member.user.id === this.group.owner.id) {
         alert("You are the creator of this group. Remove from it will delete the entire group")
         axios.delete(
-            'http://localhost:8000/api/group/' + this.id,
+            'https://filkur-fitness-app.herokuapp.com/api/group/' + this.id,
             {
               headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ export default {
             })
       }
       axios.delete(
-          'http://localhost:8000/api/member/' + this.member.id,
+          'https://filkur-fitness-app.herokuapp.com/api/member/' + this.member.id,
           {
             headers: {
               'Content-Type': 'application/json',

@@ -43,7 +43,7 @@ export default {
     saveUser(){
       this.errors= [];
       axios.post(
-          'http://localhost:8000/api/user/register',
+          'https://filkur-fitness-app.herokuapp.com/api/user/register',
           JSON.stringify(this.user),
           {
             headers: {

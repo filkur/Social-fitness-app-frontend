@@ -107,7 +107,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/group/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/group/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export default {
 
       console.log(this.newEvent)
        axios.post(
-          'http://localhost:8000/api/event',
+          'https://filkur-fitness-app.herokuapp.com/api/event',
           JSON.stringify(this.newEvent),
           {
             headers: {

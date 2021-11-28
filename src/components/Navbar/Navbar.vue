@@ -57,7 +57,7 @@
             </b-modal>
           </div>
 
-          <div class="ml-2" style="margin-top: 325px;">
+          <div class="ml-2" style="margin-top: 295px;">
             <h4>Account settings:</h4>
           </div>
           <div style="margin-top:5px;">
@@ -120,7 +120,7 @@ export default {
     },
     createGroup(){
       axios.post(
-          'http://localhost:8000/api/group',
+          'https://filkur-fitness-app.herokuapp.com/api/group',
           JSON.stringify(this.newGroup),
           {
             headers: {
@@ -137,7 +137,7 @@ export default {
     },
     joinGroup(){
       axios.post(
-          'http://localhost:8000/api/member',
+          'https://filkur-fitness-app.herokuapp.com/api/member',
           JSON.stringify(this.newEventMember),
           {
             headers: {
@@ -153,7 +153,7 @@ export default {
     },
     removeUser(){
       axios.delete(
-          'http://localhost:8000/api/user/'+this.userId,
+          'https://filkur-fitness-app.herokuapp.com/api/user/'+this.userId,
           {
             headers: {
               'Content-Type': 'application/json',

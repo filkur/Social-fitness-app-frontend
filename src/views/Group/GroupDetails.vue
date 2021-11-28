@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/group/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/group/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export default {
   methods:{
     generateCode(){
       axios.post(
-          'http://localhost:8000/api/invitation',
+          'https://filkur-fitness-app.herokuapp.com/api/invitation',
           {
             "groupId": this.group.id
           },
@@ -82,7 +82,7 @@ export default {
     },
     removeCode(){
       axios.delete(
-          'http://localhost:8000/api/invitation/'+this.group.invitation.id,
+          'https://filkur-fitness-app.herokuapp.com/api/invitation/'+this.group.invitation.id,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export default {
     },
     removeGroup(){
       axios.delete(
-          'http://localhost:8000/api/group/'+this.group.id,
+          'https://filkur-fitness-app.herokuapp.com/api/group/'+this.group.id,
           {
             headers: {
               'Content-Type': 'application/json',

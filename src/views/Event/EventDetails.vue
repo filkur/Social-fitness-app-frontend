@@ -90,7 +90,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/event/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/event/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export default {
   methods: {
     removeActivity(id){
       axios.delete(
-          'http://localhost:8000/api/activity/'+id,
+          'https://filkur-fitness-app.herokuapp.com/api/activity/'+id,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ export default {
     addActivity(){
       this.newActivity.value = parseInt(this.newActivity.value)
       axios.post(
-          'http://localhost:8000/api/activity',
+          'https://filkur-fitness-app.herokuapp.com/api/activity',
           JSON.stringify(this.newActivity),
           {
             headers: {

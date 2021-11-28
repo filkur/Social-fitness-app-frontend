@@ -15,7 +15,7 @@
         <div class="p-3">{{comment.createdBy.nickname}}</div>
         <div class="p-3"><h5>{{comment.content}}</h5></div>
         <div class="p-3">{{comment.updatedAt}}</div>
-        <div v-if="loggedUserId ===comment.createdBy.id" class="p-3">
+        <div v-if="loggedUserId ===comment.createdBy.id" class="mt-3 mr-0">
           <button @click="deleteComment(comment.id)" class="btn btn-block btn-outline-danger" type="submit">Remove</button>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/post/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/post/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export default {
     addComment(){
       console.log(this.newComment.postId)
       axios.post(
-          'http://localhost:8000/api/comment',
+          'https://filkur-fitness-app.herokuapp.com/api/comment',
           JSON.stringify(this.newComment),
           {
             headers: {
@@ -103,7 +103,7 @@ export default {
     },
     deleteComment(id){
       axios.delete(
-          'http://localhost:8000/api/comment/'+id,
+          'https://filkur-fitness-app.herokuapp.com/api/comment/'+id,
           {
             headers: {
               'Content-Type': 'application/json',

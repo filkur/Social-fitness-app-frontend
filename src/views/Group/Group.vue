@@ -93,7 +93,7 @@ export default {
   methods: {
     fetchGroups() {
       axios.get(
-          'http://localhost:8000/api/group',
+          'https://filkur-fitness-app.herokuapp.com/api/group',
           {
             headers: {
               'Content-Type': 'application/json',

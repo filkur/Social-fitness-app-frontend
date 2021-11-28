@@ -80,7 +80,7 @@ export default {
   },
   mounted() {
     axios.get(
-        'http://localhost:8000/api/user/'+this.id,
+        'https://filkur-fitness-app.herokuapp.com/api/user/'+this.id,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export default {
   methods: {
     updateUserData(){
       axios.patch(
-          'http://localhost:8000/api/user/'+this.id,
+          'https://filkur-fitness-app.herokuapp.com/api/user/'+this.id,
           JSON.stringify(this.newUserData),
           {
             headers: {
@@ -107,7 +107,7 @@ export default {
       .then(resp=>{
         alert('Data updated');
         axios.post(
-            'http://localhost:8000/api/login',
+            'https://filkur-fitness-app.herokuapp.com/api/login',
             {
               'email': this.newUserData.email,
               'password': this.newUserData.password
@@ -130,7 +130,7 @@ export default {
     },
     updateUserPassword(){
       axios.put(
-          'http://localhost:8000/api/user/'+this.id,
+          'https://filkur-fitness-app.herokuapp.com/api/user/'+this.id,
           JSON.stringify(this.newPasswordData),
           {
             headers: {
