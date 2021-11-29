@@ -100,21 +100,42 @@ export default {
     )
     .then((resp)=>{
       this.event=resp.data
-      resp.data["eventMembers"].sort((a,b)=>{
-      if (a.totalScore > b.totalScore)
+      console.log(this.event.eventType)
+      if (this.event.eventType === "LESS_TIME")
       {
-        return -1
-      }
-      if (a.totalScore < b.totalScore)
-      {
-        return 1
+        resp.data["eventMembers"].sort((a,b)=>{
+          if (a.totalScore < b.totalScore)
+          {
+            return -1
+          }
+          if (a.totalScore > b.totalScore)
+          {
+            return 1
 
+          }
+          else
+          {
+            return;
+          }
+        });
       }
-      else
-      {
-        return;
+      else {
+        resp.data["eventMembers"].sort((a,b)=>{
+          if (a.totalScore > b.totalScore)
+          {
+            return -1
+          }
+          if (a.totalScore < b.totalScore)
+          {
+            return 1
+
+          }
+          else
+          {
+            return;
+          }
+        });
       }
-      });
     })
   },
   methods: {
