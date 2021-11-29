@@ -148,7 +148,7 @@ export default {
         this.newEvent.eventType = "LESS_TIME"
       }
       axios.post(
-          'http://localhost:8000/api/event',
+          'https://filkur-fitness-app.herokuapp.com/api/event',
           JSON.stringify(this.newEvent),
           {
             headers: {
@@ -177,7 +177,7 @@ export default {
       }
 
       axios.patch(
-          'http://localhost:8000/api/event/' + this.changeStatus.id + '/active',
+          'https://filkur-fitness-app.herokuapp.com/api/event/' + this.changeStatus.id + '/active',
           JSON.stringify(this.changeStatus),
           {
             headers: {
