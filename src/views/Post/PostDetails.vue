@@ -3,22 +3,22 @@
   <navbar></navbar>
   <div class="container" style="margin-top: 100px;">
     <div class="container border bg-light rounded mt-5" style="max-width: 700px;">
-      <div class="d-flex justify-content-around mt-3 mb-3">
-        <div class="p-4">{{post.createdBy.nickname}}</div>
-        <div class="p-4"><h5>{{post.content}}</h5></div>
-        <div class="p-4">{{post.createdAt}}</div>
-      </div>
+      <b-row class="text-center mb-4 mt-4">
+        <b-col>{{post.createdBy.nickname}}</b-col>
+        <b-col style="min-width: 300px;"><h5>{{post.content}}</h5></b-col>
+        <b-col>{{post.createdAt}}</b-col>
+      </b-row>
     </div>
     <hr>
     <div v-for="comment in post.comments" v-bind:key="comment.id" class="container border bg-white" style="max-width: 700px;">
-      <div  class="d-flex justify-content-around">
-        <div class="p-3">{{comment.createdBy.nickname}}</div>
-        <div class="p-3"><h5>{{comment.content}}</h5></div>
-        <div class="p-3">{{comment.updatedAt}}</div>
-        <div v-if="loggedUserId ===comment.createdBy.id" class="p-3">
-          <button @click="deleteComment(comment.id)" class="btn btn-block btn-outline-danger" type="submit">Remove</button>
-        </div>
-      </div>
+      <b-row class="text-center mb-4 mt-4">
+        <b-col>{{comment.createdBy.nickname}}</b-col>
+        <b-col><h5>{{comment.content}}</h5></b-col>
+        <b-col>{{comment.updatedAt}}</b-col>
+        <b-col v-if="loggedUserId ===comment.createdBy.id" style="max-width: 80px;">
+          <button @click="deleteComment(comment.id)" class="btn btn-block btn-outline-danger" type="submit">X</button>
+        </b-col>
+      </b-row>
     </div>
     <div class="container mt-2" style="max-width: 700px;">
       <div>

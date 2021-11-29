@@ -25,7 +25,7 @@
       </div>
       <div v-for="post in group.posts" v-bind:key="post.id" class="container border bg-light rounded mt-5" style="max-width: 600px;">
         <div class="d-flex justify-content-around">
-          <div class="p-4" style="margin-left: 100px;">{{post.createdBy.nickname}}</div>
+          <div class="p-4">{{post.createdBy.nickname}}</div>
           <div class="p-4"><h5>{{post.content}}</h5></div>
           <div class="p-4">{{post.createdAt}}</div>
         </div>

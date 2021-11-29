@@ -7,8 +7,8 @@
           <h2>Results</h2>
         </div>
         <div class="container mt-2" style="max-width: 700px;">
-          <div>
-            <b-button v-b-toggle.collapse-1 variant="secondary">Add new activity</b-button>
+          <div v-if="event.isActive === true">
+            <b-button  v-b-toggle.collapse-1 variant="secondary">Add new activity</b-button>
             <b-collapse id="collapse-1" class="mt-2">
               <b-card>
                 <div class="form">
@@ -52,7 +52,7 @@
               <td>{{activity.name}}</td>
               <td>{{activity.value}}</td>
               <td>{{activity.createdAt}}</td>
-              <td v-if="loggedUserId === member.user.id">
+              <td v-if="loggedUserId === member.user.id && event.isActive === true">
                 <button @click="removeActivity(activity.id)" class="btn btn-danger" type="submit">Remove activity</button>
               </td>
             </tr>
