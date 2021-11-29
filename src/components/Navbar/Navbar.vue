@@ -57,11 +57,11 @@
             </b-modal>
           </div>
 
-          <div class="ml-2" style="margin-top: 295px;">
+          <div class="mt-3 ml-3">
             <h4>Account settings:</h4>
           </div>
-          <div style="margin-top:5px;">
-            <b-card-footer >
+          <div class="mt-3">
+            <b-card-footer>
               <router-link v-bind:to="'/me'" class="btn btn-block btn-outline-success">Edit</router-link>
               <b-button @click="removeUser()" block variant="outline-danger">Remove</b-button>
             </b-card-footer>

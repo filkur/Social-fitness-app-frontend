@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <div class="row" style="margin-top: 200px;">
+    <div class="row" style="margin-top: 150px;">
       <div class="col">
         <header><h1>Social-fitness-app</h1></header>
-        <p>Jesteś gotowy na odpowiedni zastrzyk motywacji?
-        Zarejestruj się już teraz!</p>
+        <p>Practice with your friends</p>
+        <h5>Get our App!</h5>
+        <img :src="require(`@/assets/mobile_login.png`)" style="margin-right:50px;" alt="mobile_login">
+        <img :src="require(`@/assets/mobile_ranking.png`)" alt="mobile_ranking">
       </div>
       <div class="col">
-        <login></login>
+        <login style="margin-top: 150px;"></login>
       </div>
     </div>
   </div>
